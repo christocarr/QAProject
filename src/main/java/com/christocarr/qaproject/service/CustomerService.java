@@ -9,6 +9,7 @@ import java.util.Optional;
 @Service
 public class CustomerService {
 
+
   private CustomerRepository customerRepository;
 
   public CustomerService(CustomerRepository customerRepository) {
@@ -17,7 +18,7 @@ public class CustomerService {
 
   //Create
   public Customer addCustomer(Customer customer) {
-    return customerRepository.save(customer);
+     return customerRepository.save(customer);
   }
 
   //Read
@@ -30,9 +31,18 @@ public class CustomerService {
   }
 
   //Update
-  public Customer updateCustomer(Customer customer) {
-    customerRepository.deleteById(customer.getCustomerId());
-    return customerRepository.save(customer);
+  public Optional<Customer> updateCustomer(Customer customer) {
+    return customerRepository.findById(customer.getCustomerId())
+            .map(cust -> {
+              cust.setFirstName(customer.getFirstName());
+              cust.setLastName(customer.getLastName());
+              cust.setAddressOne(customer.getAddressOne());
+              cust.setAddressTwo(customer.getAddressTwo());
+              cust.setCity(customer.getCity());
+              cust.setPostcode(customer.getPostcode());
+              cust.setDriversLicense(customer.getDriversLicense());
+              return customerRepository.save(cust);
+            });
   }
 
   //Delete
