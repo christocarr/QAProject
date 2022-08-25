@@ -1,6 +1,5 @@
-package com.christocarr.qaproject.modeltest;
+package com.christocarr.qaproject.modeltests;
 
-import com.christocarr.qaproject.model.Customer;
 import com.christocarr.qaproject.model.OnHire;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

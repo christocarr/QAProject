@@ -4,6 +4,7 @@ import com.christocarr.qaproject.model.Customer;
 import com.christocarr.qaproject.repository.CustomerRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,8 +23,8 @@ public class CustomerService {
   }
 
   //Read
-  public Iterable<Customer> getAllCustomers() {
-    return customerRepository.findAll();
+  public List<Customer> getAllCustomers() {
+    return (List<Customer>) customerRepository.findAll();
   }
 
   public Optional<Customer> getCustomerById(int id) {
@@ -48,5 +49,15 @@ public class CustomerService {
   //Delete
   public void deleteCustomer(Customer customer) {
     customerRepository.delete(customer);
+  }
+
+  //custom query find all by first name
+  public Iterable<Customer> findByFirstName(String firstName) {
+    return customerRepository.selectAllByFirstName(firstName);
+  }
+
+  //custom query find by drivers license
+  public Optional<Customer> findByDriversLicense(String driversLicense) {
+    return customerRepository.findByDriversLicense(driversLicense);
   }
 }
