@@ -33,4 +33,16 @@ public class Customer {
   private String postcode;
   @Column
   private String driversLicense;
+
+  @Override
+  public boolean equals(Object obj) {
+    if(obj == this) {
+      return true;
+    }
+    if(obj instanceof Customer) {
+      Customer customer = (Customer)obj;
+      return this.customerId == customer.customerId;
+    }
+    return false;
+  }
 }

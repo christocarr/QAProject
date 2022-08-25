@@ -17,12 +17,6 @@ public class CustomerController {
     this.customerService = customerService;
   }
 
-  @PostMapping("/customers/add")
-  public Customer addCustomer(@RequestBody Customer customer) {
-
-    return customerService.addCustomer(customer);
-  }
-
   @GetMapping("/customers/all")
   public Iterable<Customer> getAllCustomers() {
     return customerService.getAllCustomers();
@@ -33,6 +27,12 @@ public class CustomerController {
     return Optional.ofNullable(customerService.getCustomerById(id).orElseThrow(() -> new ResourceNotFoundException("Customer not found with this id.")));
   }
 
+  @PostMapping("/customers/add")
+  public Customer addCustomer(@RequestBody Customer customer) {
+
+    return customerService.addCustomer(customer);
+  }
+
   @PutMapping("/customers/update")
   public Optional<Customer> updateCustomer(@RequestBody Customer customer) {
     return customerService.updateCustomer(customer);
@@ -41,5 +41,17 @@ public class CustomerController {
   @DeleteMapping("/customers/delete")
   public void deleteCustomer(@RequestBody Customer customer) {
     customerService.deleteCustomer(customer);
+  }
+
+  //custom query find all by first name
+  @GetMapping("/customers/find-by-first-name")
+  public Iterable<Customer> findByFirstName(@RequestParam String firstName) {
+    return customerService.findByFirstName(firstName);
+  }
+
+  //custom query find by drivers license
+  @GetMapping("/customers/find-by-drivers-license")
+  public Optional<Customer> findByDriversLicense(@RequestParam String driversLicense) {
+    return customerService.findByDriversLicense(driversLicense);
   }
 }

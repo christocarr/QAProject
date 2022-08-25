@@ -1,4 +1,4 @@
-package com.christocarr.qaproject.modeltest;
+package com.christocarr.qaproject.modeltests;
 
 import com.christocarr.qaproject.model.Customer;
 import org.junit.jupiter.api.BeforeEach;

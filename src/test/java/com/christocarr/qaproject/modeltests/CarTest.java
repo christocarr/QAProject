@@ -1,7 +1,6 @@
-package com.christocarr.qaproject.modeltest;
+package com.christocarr.qaproject.modeltests;
 
 import com.christocarr.qaproject.model.Car;
-import com.christocarr.qaproject.model.Customer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
