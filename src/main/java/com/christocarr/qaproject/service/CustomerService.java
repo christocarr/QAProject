@@ -60,4 +60,9 @@ public class CustomerService {
   public Optional<Customer> findByDriversLicense(String driversLicense) {
     return customerRepository.findByDriversLicense(driversLicense);
   }
+  
+//custom query find all by last name
+  public Iterable<Customer> findByLastName(String lastName) {
+    return customerRepository.selectAllByLastName(lastName);
+  }
 }

@@ -1,4 +1,4 @@
-package com.christocarr.qaproject.controllertests;
+package com.christocarr.qaproject;
 
 import com.christocarr.qaproject.controller.CustomerController;
 import com.christocarr.qaproject.model.Customer;
@@ -12,15 +12,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -50,6 +51,18 @@ public class CustomerControllerTests {
   }
 
   @Test
+  public void testFindById() throws Exception {
+    Customer customer = new Customer(55, "Jack", "Black", "101 Hollywood Blvd", "", "LA", "BD20 0RR", "BJ200370K");
+
+    when(customerService.getCustomerById(customer.getCustomerId())).thenReturn(Optional.of(customer));
+
+    mockMvc.perform(get("/customers/{id}", customer.getCustomerId())
+            .contentType("text/plain"))
+            .andExpect(status().isOk());
+
+  }
+
+  @Test
   public void testPostCustomer() throws Exception {
     Customer customer = new Customer(55, "Jack", "Black", "101 Hollywood Blvd", "", "LA", "BD20 0RR", "BJ200370K");
 
@@ -59,6 +72,35 @@ public class CustomerControllerTests {
             .contentType(MediaType.APPLICATION_JSON)
             .content("{\"customerId\": \"100\",\"firstName\": \"Bill\",\"lastName\": \"Gates\",\"addressOne\": \"1 MicroSoft Way\", \"addressTwo\": \"\",\"city\": \"New York\", \"postcode\": \"zz23456\",\"driversLicense\": \"BG100265\"}"))
             .andExpect(status().isOk());
+  }
+
+  @Test
+  public void testPutCustomer() throws Exception {
+    MockHttpServletRequestBuilder builder = MockMvcRequestBuilders
+            .put("/customers/update")
+            .contentType(MediaType.APPLICATION_JSON)
+            .characterEncoding("UTF-8")
+            .content(getCustomerJson(55));
+
+    mockMvc.perform(builder)
+            .andExpect(MockMvcResultMatchers.status().isOk());
+  }
+
+  @Test
+  public void testDeleteCustomer() throws Exception {
+    Customer customer = new Customer(55, "Jack", "Black", "101 Hollywood Blvd", "", "LA", "BD20 0RR", "BJ200370K");
+
+    doNothing().when(customerService).deleteCustomer(customer);
+
+    mockMvc.perform(delete("/customers/delete")
+            .contentType(MediaType.APPLICATION_JSON)
+            .content("{\"customerId\": \"55\",\"firstName\": \"Jack\",\"lastName\": \"Black\",\"addressOne\": \"101 Hollywood Blvd\", \"addressTwo\": \"\",\"city\": \"LA\", \"postcode\": \"BD20 0RR\",\"driversLicense\": \"BJ200370K\"}"))
+            .andExpect(status().isOk());
+
+  }
+
+  private String getCustomerJson(int id) {
+    return "{\"customerId\": \"" + id + "\",\"firstName\": \"Jack\",\"lastName\": \"Black\",\"addressOne\": \"101 Hollywood Blvd\", \"addressTwo\": \"\",\"city\": \"LA\", \"postcode\": \"BD20 0RR\",\"driversLicense\": \"BJ200370K\"}";
   }
 
 }
