@@ -54,4 +54,10 @@ public class CustomerController {
   public Optional<Customer> findByDriversLicense(@RequestParam String driversLicense) {
     return customerService.findByDriversLicense(driversLicense);
   }
+  
+//custom query find all by last name
+  @GetMapping("/customers/find-by-last-name")
+  public Iterable<Customer> findByLasttName(@RequestParam String lastName) {
+    return customerService.findByLastName(lastName);
+  }
 }

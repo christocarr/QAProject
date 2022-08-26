@@ -33,8 +33,7 @@ public class Customer {
   private String postcode;
   @Column
   private String driversLicense;
-
-  @Override
+@Override
   public boolean equals(Object obj) {
     if(obj == this) {
       return true;
