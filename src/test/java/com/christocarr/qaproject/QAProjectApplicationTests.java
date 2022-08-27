@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.*;
 
@@ -22,6 +23,7 @@ import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @RequiredArgsConstructor
+@ActiveProfiles("dev")
 public class QAProjectApplicationTests {
 	private CustomerRepository customerRepository;
 	private CustomerService customerService;
