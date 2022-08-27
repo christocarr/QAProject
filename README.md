@@ -1,24 +1,33 @@
 # QAProject
 
-The final project for the Software Engineering bootcamp offered by [QA].
+This is the final project for the Software Engineering bootcamp offered by [QA]. The project showcases my skills and knowledge gained during this time. Topics and subjects covered during the software specialism part of the  bootcamp include:
+
+  - Agile & Project Management (Git, Jira)
+  - Databases & Cloud Fundamentals (Azure, MySQL)
+  - Programming Fundamentals (Java)
+  - API Development (Spring Boot)
+  - Automated Testing (JUnit, Mockito)
 
 ## Why are we doing this?
 
-During our last week of the bootcamp we were given the task of completing a project that would show our skills and knowledge.
+During our last week of the bootcamp we were given the task of completing a project that would demonstrate our skills and knowledge using Java, Spring and Spring Boot, project management tools such as Jira, version control using Git, database management using MySQL, and unit and integration testing using JUnit and Mockito. 
 
 ## How I expected the challenge to go.
 
-Initially the project seemed daunting and I was worried that I would not get it finished on time but breaking down tasks into manageable parts helped a lot.
+Initially the project seemed daunting and I was worried that I would not get it finished on time but breaking down tasks into manageable parts using [Jira] helped a lot.
 
 ## What went well? / What didn't go as planned?
 
-Project setut such as database and table creation, implementing the repository, services and controllers went well.
+Project setup such as database and table creation, implementing the repository, services and controllers went well.  
 
-Testing did not go well(elaborate)
+Testing did not go well and to complete it I had to do self-learning by reading articls on service, repository and controller testing using Mockito and JUnit. [Baeldung] is a good resource not only for testing but for all areas of Java and Spring. 
+
+Creating custom controller queries was a little more challenging.
 
 
 ## Possible improvements for future revisions of the project.
 
+Planned for improving this API is to include more database tables and join queries to provide more endpoints. I  plan to build a front end to consume these endpoints to allow for a full stack real-world application.
 
 
 ## Screenshots showing your postman requests and the output from the API.
@@ -27,11 +36,15 @@ Testing did not go well(elaborate)
 
 ## Screenshots of your database to prove that data is being persisted.
 
+
+
 ## Screenshot of your test results, including coverage report.
 
 
-Link to [Jira].
+
+
+[Baeldung]:https://www.baeldung.com/
 
 [Jira]:https://chriscarrqaproject.atlassian.net/jira/software/projects/QP/boards/1/backlog?selectedIssue=QP-11
 
-[QA]:https://www.qa.com/?infinity=ict2~net~gaw~cmp~304720400~ag~22935596960~ar~547382852879~kw~qa~mt~e~acr~5452266887&infinity=ict2~net~gaw~ar~547382852879~kw~qa~mt~e~cmp~Brand-Search-Exact-CD~ag~QA%20-%20Exact&utm_term=qa&utm_campaign=Brand-Search-Exact-         CD&utm_source=adwords&utm_medium=ppc&hsa_acc=5452266887&hsa_cam=304720400&hsa_grp=22935596960&hsa_ad=547382852879&hsa_src=g&hsa_tgt=aud-301809821016:kwd-27562141&hsa_kw=qa&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjw0oyYBhDGARIsAMZEuMvA7-mltmH8TsjldjIvGIRB2uCyk1y8CCXkXzrHYqnQwGPF03SwF-kaAtHSEALw_wcB
+[QA]:https://www.qa.com/
