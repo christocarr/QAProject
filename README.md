@@ -33,23 +33,20 @@ Planned for improving this API is to include more database tables and join queri
 
 #### Screenshots showing your HTTPie requests and the output from the API.
 
-![GET by id](https://imgur.com/heATWgT)
+![GET all](https://i.imgur.com/CgEXzHt.png)
 
-![GET all](https://imgur.com/CgEXzHt)
+![GET by id](https://i.imgur.com/heATWgT.png)
 
 
 ####  Screenshots of database to prove that data is being persisted.
 
-![Database](https://imgur.com/CE5aMXf)
-
+![Database](https://i.imgur.com/CE5aMXf.png)
 
 #### Screenshot of test results, including coverage report.
 
-![Testing](https://imgur.com/PYoqQ1J)
-
+![Testing](https://i.imgur.com/PYoqQ1J.png)
 
 ####  API Endpoint Testing
-
 The Spring Boot API is currently deployed to AWS Elastic Beanstalk and can be tested using a browser by going to the following links:
 
  - [GET all database table data] 
