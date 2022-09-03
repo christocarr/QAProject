@@ -1,4 +1,5 @@
 
+
 # QA Project
 
 This is the final project for the Software Engineering bootcamp offered by [QA]. The project showcases my skills and knowledge gained during this time. The goal was to create a **Spring Boot API**, with utilisation of supporting tools, methodologies, and technologies, that encapsulates all fundamental and practical modules covered during training.
@@ -46,6 +47,7 @@ Planned for improving this API is to include more database tables and join queri
 
 ![Testing](https://i.imgur.com/PYoqQ1J.png)
 
+<!--
 ####  API Endpoint Testing
 The Spring Boot API is currently deployed to AWS Elastic Beanstalk and can be tested using a browser by going to the following links:
 
@@ -53,6 +55,7 @@ The Spring Boot API is currently deployed to AWS Elastic Beanstalk and can be te
 - [GET one database table entry by id]
 
 More testing can be done using [Postman] or [HTTPie] to use other requests like post, put or delete using a JSON copy of a table entity in the body section and using **add**, **update** and **delete** as an endpoint and the respective HTTP method.
+-->
 
 [GET all database table data]:http://voltcarhire-env.eba-sxer3vyq.eu-west-2.elasticbeanstalk.com/customers/all
 [GET one database table entry by id]:http://voltcarhire-env.eba-sxer3vyq.eu-west-2.elasticbeanstalk.com/customers/1
